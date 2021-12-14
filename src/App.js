@@ -9,6 +9,7 @@ const alanLogoSrc = 'https://alan.app/static/meduza_logo.3d2c10da.png';
 
 const App = () => {
     const [newsArticles, setNewsArticles] = useState([]);
+    const [activeArticle, setActiveArticle] = useState(-1);
     const classes = useStyles();
 
     useEffect(() => {
@@ -17,6 +18,10 @@ const App = () => {
             onCommand: ({ command, articles }) => {
                 if(command === 'newHeadlines'){
                     setNewsArticles(articles);
+                    setActiveArticle(-1);
+                }
+                else if(command === 'highlight'){
+                    setActiveArticle((prevArticle) => prevArticle + 1);
                 }
             },
         })
@@ -27,7 +32,7 @@ const App = () => {
             <div className={classes.logoContainer}>
                 <img className={classes.alanLogo} src={alanLogoSrc} alt='Alan Logo'/>
             </div>
-            <NewsCards articles={newsArticles} />
+            <NewsCards articles={newsArticles} activeArticle={activeArticle} />
         </div>
     )
 }
