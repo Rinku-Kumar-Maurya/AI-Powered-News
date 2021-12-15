@@ -45,6 +45,7 @@ export default makeStyles((theme) => ({
       },
     },
   },
+
   infoContainer: {
     display: 'flex',
     alignItems: 'center',
@@ -53,6 +54,18 @@ export default makeStyles((theme) => ({
       flexDirection: 'column',
     },
   },
+
+  "@keyframes glow": {
+    "0%": {
+      opacity: '0.3',
+      
+    },
+    "100%": {
+      opacity: '1',
+      
+    }
+  },
+  
   logoContainer: {
     padding: '0 5%',
     display: 'flex',
@@ -67,10 +80,11 @@ export default makeStyles((theme) => ({
   alanLogo: {
     height: '27vmin',
     borderRadius: '15%',
-    padding: '0 5%',
     margin: '3% 0',
     [theme.breakpoints.down('sm')]: {
       height: '35vmin',
     },
+    animation: `$glow 1s ease-in-out infinite alternate`
   },
+  
 }));

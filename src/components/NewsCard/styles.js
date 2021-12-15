@@ -15,10 +15,10 @@ const styles = makeStyles({
         flexDirection: 'column',
         justifyContent: 'space-between',
         borderBottom: '10px solid white',
-        boxShadow: 3,
     },
     activeCard: {
         borderBottom: '10px solid #22289a',
+        color: '#22289a'
     },
     grid: {
         display: 'flex',

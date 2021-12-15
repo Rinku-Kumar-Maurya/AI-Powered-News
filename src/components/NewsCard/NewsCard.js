@@ -1,14 +1,26 @@
-import React from 'react'
+import React, {useState, useEffect, createRef} from 'react'
 import {Card, CardActions, CardActionArea, CardMedia, CardContent, Button, Typography} from '@material-ui/core'
 import classNames from 'classnames'
 import useStyles from './styles.js'
 
 const NewsCard = ({article: {description, publishedAt, source, title, url, urlToImage}, i, activeArticle}) => {
-
     const classes = useStyles();
+    const [refs, setRefs] = useState([]);
+
+    const scrollToRef = (ref) => window.scroll(0, ref.current.offsetTop - 50);
+
+    useEffect(() => {
+        setRefs((refs) => Array(20).fill().map((_, j) => refs[j] || createRef()));
+    }, []);
+
+    useEffect(() => {
+        if(i === activeArticle && refs[activeArticle]){
+            scrollToRef(refs[activeArticle]);
+        }
+    }, [i, activeArticle, refs]);
 
     return (
-        <Card className={classNames(classes.card, activeArticle === i ? classes.activeCard : null)}>
+        <Card ref={refs[i]} className={classNames(classes.card, activeArticle === i ? classes.activeCard : null)}>
             <CardActionArea href={url} target='_blank'>
                 <CardMedia className={classes.media} image={urlToImage || 'https://w7.pngwing.com/pngs/615/25/png-transparent-computer-icons-google-news-newspaper-source-others-miscellaneous-text-news.png'} />
                 <div className={classes.details}>
