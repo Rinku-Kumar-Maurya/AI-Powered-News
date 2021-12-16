@@ -7,7 +7,7 @@ const NewsCard = ({article: {description, publishedAt, source, title, url, urlTo
     const classes = useStyles();
     const [refs, setRefs] = useState([]);
 
-    const scrollToRef = (ref) => window.scroll(0, ref.current.offsetTop - 50);
+    const scrollToRef = (ref) => window.scroll(0, ref.current.offsetTop - 30);
 
     useEffect(() => {
         setRefs((refs) => Array(20).fill().map((_, j) => refs[j] || createRef()));

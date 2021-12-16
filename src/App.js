@@ -22,19 +22,25 @@ const App = () => {
                     setActiveArticle(-1);
                 }
                 else if(command === 'highlight'){
-                    setActiveArticle((prevArticle) => prevArticle + 1);
+                    setActiveArticle(number);
                 }
                 else if(command === 'open'){
                     const parsedNum = number.length > 2 ? wordsToNumber(number, {fuzzy: true}) : number;
                     const article = articles[parsedNum-1];
 
-                    if(parsedNum > 20){
-                        alanBtn().playText('Please try again.');
+                    if(article){
+                        if(parsedNum > 20){
+                            alanBtn().playText('Please try again.');
+                        }
+                        else{
+                            window.open(article?.url, '_blank');
+                            alanBtn().playText('Opening...');
+                        }
                     }
                     else{
-                        window.open(article.url, '_blank');
-                        alanBtn().playText('Opening...');
+                        alanBtn().playText('Could you please repeat it again.');
                     }
+                    
                 }
             },
         })
