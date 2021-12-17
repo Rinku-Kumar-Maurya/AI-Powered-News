@@ -10,7 +10,7 @@ export default makeStyles((theme) => ({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    height: '50px',
+    height: '55px',
     marginTop: '40px',
     // [theme.breakpoints.down('xs')]: {
     //   display: 'none',

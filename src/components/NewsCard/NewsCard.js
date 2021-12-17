@@ -19,6 +19,10 @@ const NewsCard = ({article: {description, publishedAt, source, title, url, urlTo
         }
     }, [i, activeArticle, refs]);
 
+    const openArticle = () => {
+        window.open(url, '_blank');
+    }
+
     return (
         <Card ref={refs[i]} className={classNames(classes.card, activeArticle === i ? classes.activeCard : null)}>
             <CardActionArea href={url} target='_blank'>
@@ -33,7 +37,7 @@ const NewsCard = ({article: {description, publishedAt, source, title, url, urlTo
                 </CardContent>
             </CardActionArea>
             <CardActions className={classes.cardActions}>
-                <Button size='small' color='primary'>Learn More</Button>
+                <Button size='small' color='primary' onClick={openArticle}>Learn More</Button>
                 <Typography variant='h5' color='textSecondary'>{i+1}</Typography>
             </CardActions>
         </Card>
