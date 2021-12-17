@@ -3,7 +3,6 @@ import { makeStyles } from '@material-ui/core/styles';
 export default makeStyles((theme) => ({
   footer: {
     textAlign: 'center',
-    position: 'fixed',
     left: 0,
     bottom: 0,
     color: 'black',
@@ -11,10 +10,11 @@ export default makeStyles((theme) => ({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    height: '120px',
-    [theme.breakpoints.down('sm')]: {
-      display: 'none',
-    },
+    height: '50px',
+    marginTop: '40px',
+    // [theme.breakpoints.down('xs')]: {
+    //   display: 'none',
+    // },
   },
   link: {
     textDecoration: 'none',

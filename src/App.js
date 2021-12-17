@@ -3,6 +3,7 @@ import alanBtn from '@alan-ai/alan-sdk-web'
 import wordsToNumber from 'words-to-numbers'
 
 import NewsCards from './components/NewsCards/NewsCards'
+import { Typography } from '@material-ui/core'
 import useStyles from './styles.js'
 
 const alanKey = process.env.REACT_APP_ALAN_KEY;
@@ -52,6 +53,7 @@ const App = () => {
                 <img className={classes.alanLogo} src={alanLogoSrc} alt='Alan Logo'/>
             </div>
             <NewsCards articles={newsArticles} activeArticle={activeArticle} />
+            <Typography className={classes.footer} variant='body2' component='p'>This app is made using Alan AI</Typography>
         </div>
     )
 }
