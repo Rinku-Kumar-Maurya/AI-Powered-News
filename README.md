@@ -1,4 +1,4 @@
-![project demo]
+![project demo](./gifs/AI-powered-news.gif)
 
 This project is made using Alan AI with which you can add voice capabilites to your application. In this app you just have to command Alan to fetch news from different sources or on a particular topic. It also has features like reading headlines aloud, opening an article all through voice. You can also do small talk with Alan ✌😁.
 
